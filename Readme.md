@@ -4,12 +4,21 @@ This repository contains the data, R scripts, and generated figures for the hyst
 
 By utilizing a unified dataset containing annual means for Deep, Shallow, and All-region MSFD biogeochemical indicators alongside external nutrient loads, these scripts reproduce the phase-space trajectories, causality networks, and cross-correlation functions discussed in the article.
 
+**Recent Updates:** 
+* All figures (Main 1-5 and SM 1-4) have been updated to utilize colorblind-friendly palettes (Okabe-Ito) to maximize accessibility and clarity.
+* Added independent empirical validation datasets (ICES and ODIN) and corresponding scripts (SM5, SM6, SM7) to corroborate the deterministic model findings and prove the deep-water legacy phosphorus trap.
+
 ## 📂 Repository Structure
 
-If exploring this repository, the files are categorized as follows:
+The files are categorized as follows:
 
 ### 📊 Data
 * **`Baltic_variables_Mt_4_Causal_Input.csv`**: The master unified dataset (1954–2022). It contains annual values for Total Nitrogen (TN) and Total Phosphorus (TP) loads, as well as TTI (Trophic Transfer Index), GES (Good Environmental Status), MSFD biogeochemical variables (DIP, DIN, CHLA, Secchi), and Oxygen Deficit (DO2_Mt). Variables are aggregated for Deep basins, Shallow margins, and the entire Baltic region.
+* **Observational & Validation Data**: Contains historical observations extracted from the IOW ODIN and ICES databases, alongside nearest-neighbor model extractions, used to generate Supplementary Figures 5, 6, and 7. Key files include:
+  * `Gotland_dip_gt50m.csv`, `Bornholm_dip_gt50m.csv`, `ICES_Bornholm_Gotland_DIP_annual_gt50m.csv`
+  * `Phosphate_EGB_ICES_18.24_58.58_150m_1960_2022.csv`
+  * `Arkona_annual_means_summary.csv`, `EGB_annual_means_summary.csv`
+  * `EGB_183_586_model_mon_DIP.txt`, `ARK_model_DIP.txt`, `EGB_model_DIN.txt`, etc.
 
 ### 💻 Scripts & 📈 Figures
 
@@ -43,8 +52,17 @@ If exploring this repository, the files are categorized as follows:
 * **SM Figure 4: Baltic Sea Productivity (PPR vs Chl-a)**
   * Script: `plot_SM_Fig4_PPR_CHLA_annual_data_2026_06_11.R`
   * Output: `Figure_SM4_Baltic_PPR_CHLA.png`
+* **SM Figure 5: Deep-Water (150m) Phosphorus Trap Verification**
+  * Script: `plot_SM_Fig5_Baltic_DIP_deep_150m_Obs_Model.R`
+  * Output: `Figure_SM5_Baltic_Deep_150m_DIP.png`
+* **SM Figure 6: Regional Deep-Water (>50m) Phosphorus Accumulation**
+  * Script: `plot_SM_Fig6_Baltic_DIP_deep_50m_ICES.R`
+  * Output: `Figure_SM6_Baltic_Regional_Deep_DIP.png`
+* **SM Figure 7: Surface Nutrient Observations vs. Model (ODIN)**
+  * Script: `plot_SM_Fig7_Baltic_DIP_DIN_ODIN_Model.R`
+  * Output: `Figure_SM7_Baltic_ODIN_vs_Model_Combined.png`
 
 ## 🚀 How to Run
 1. Clone this repository to your local machine.
 2. Ensure you have R installed along with the required libraries: `ggplot2`, `dplyr`, `tidyr`, `ggpubr`, `strucchange`, `patchwork`, `igraph`, and `ggnetwork`.
-3. Run any of the `.R` scripts. They are fully self-contained and will automatically read from the unified `.csv` file and export high-resolution `.png` figures.
+3. Run any of the `.R` scripts. They are fully self-contained and will automatically read from the relevant `.csv` and `.txt` files to export high-resolution `.png` figures.

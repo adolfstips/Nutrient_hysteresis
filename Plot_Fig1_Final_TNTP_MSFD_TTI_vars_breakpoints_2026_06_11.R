@@ -27,6 +27,9 @@ s_date <- 1954
 e_date <- 2022
 years_vec <- s_date:e_date
 
+# Okabe-Ito colorblind-friendly palette
+okabe_ito <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#000000")
+
 # Helper Function: Calculate breakpoints naturally and map INDICES to YEARS
 get_bp_ci_mapped <- function(ts_data, years_vector) {
   bp <- breakpoints(ts_data ~ 1)
@@ -108,7 +111,7 @@ p_loads <- ggplot(nutrients_long, aes(x = Year, y = Value)) +
   geom_vline(data = ci_nutrients, aes(xintercept = Break), color = "black", linetype = "dashed", linewidth = 0.8) +
   geom_line(aes(color = Variable), linewidth = 0.8) +
   facet_wrap(~ Variable, scales = "free_y", ncol = 2) +
-  scale_color_brewer(palette = "Dark2") +
+  scale_color_manual(values = okabe_ito) +
   scale_x_continuous(breaks = seq(1950, 2030, by = 10)) +
   theme_pubr(base_size = 14) +
   labs(title = "Baltic Sea Nutrient Loadings (TN & TP)", 
@@ -125,7 +128,7 @@ p_msfd <- ggplot(msfd_long, aes(x = Year, y = Z_Score, color = Variable)) +
   geom_vline(data = ci_msfd, aes(xintercept = Break), color = "black", linetype = "dashed", linewidth = 0.8) +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black", alpha = 0.6) +
   geom_line(linewidth = 0.8, alpha = 0.8) +
-  scale_color_brewer(palette = "Set1", name = "Indicator") +
+  scale_color_manual(values = okabe_ito, name = "Indicator") +
   scale_x_continuous(breaks = seq(1950, 2030, by = 10)) +
   theme_pubr(base_size = 14) +
   labs(title = "Temporal Evolution of Standardized MSFD Indicators (1954-2022)", 
@@ -141,7 +144,7 @@ p_coupled <- ggplot() +
   geom_vline(data = ci_grand, aes(xintercept = Break), color = "black", linetype = "dashed", linewidth = 0.8) +
   geom_line(data = grand_long, aes(x = Year, y = Z_Score, color = Metric, linetype = Type), linewidth = 0.8) +
   scale_x_continuous(breaks = seq(1950, 2030, by = 10)) +
-  scale_color_brewer(palette = "Dark2") +
+  scale_color_manual(values = okabe_ito) +
   theme_pubr(base_size = 14) +
   labs(title = "Baltic Sea Coupled System (Drivers + Response)",
        subtitle = paste("Unified Breakpoints:", paste(ci_grand$Break, collapse = ", ")),

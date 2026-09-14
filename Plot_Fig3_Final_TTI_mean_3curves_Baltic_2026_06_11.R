@@ -39,9 +39,10 @@ tti_df_long$Source <- factor(tti_df_long$Source,
                              levels = c("TTI All", "TTI Deep", "TTI Shallow"))
 
 # --- 3. AESTHETICS & FACTORS ---
-all_colors_tti <- c("TTI All" = "firebrick", "TTI Deep" = "steelblue", "TTI Shallow" = "darkgreen")
+# Okabe-Ito colorblind-friendly palette
+all_colors_tti <- c("TTI All" = "#D55E00", "TTI Deep" = "#0072B2", "TTI Shallow" = "#009E73")
 plot_shapes <- c("TTI All" = 16, "TTI Deep" = 17, "TTI Shallow" = 15)
-plot_linewidths <- c("TTI All" = 1.8, "TTI Deep" = 1.2, "TTI Shallow" = 1.2)
+plot_linewidths <- c("TTI All" = 1.2, "TTI Deep" = 0.8, "TTI Shallow" = 0.8) # Thinner lines
 
 # --- 4. LABEL POSITIONING FUNCTION ---
 get_tti_label_pos <- function(data_long, year_offset = 1.5) {
@@ -65,20 +66,18 @@ baltic_tti_plot_final <- ggplot(tti_df_long, aes(x = Year, y = Value, color = So
   annotate("rect", xmin = 1988, xmax = 2012, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.07) +
   annotate("rect", xmin = 2012, xmax = 2022, ymin = -Inf, ymax = Inf, fill = "blue", alpha = 0.07) +
   
-  # B. Reference Lines
+    # B. Reference Lines
   geom_vline(xintercept = c(1974, 1988, 2012), color = "red", linetype = "longdash", linewidth = 0.8) +
-  annotate("segment", x = 1953, xend = 2022, y = GES_THRESHOLD, yend = GES_THRESHOLD, 
-           linetype = "dashed", color = "darkgreen", linewidth = 0.8) +
-  annotate("text", x = 1960, y = GES_THRESHOLD, vjust = -0.5, 
-           label = paste0("GES (", GES_THRESHOLD, ")"), color = "darkgreen", size = 5) +
   
+  annotate("segment", x = 1953, xend = 2022, y = GES_THRESHOLD, yend = GES_THRESHOLD, 
+           linetype = "dashed", color = "#009E73", linewidth = 0.8) +
   annotate("text", x = 1960, y = GES_THRESHOLD, vjust = -0.5, 
-           label = paste0("GES (", GES_THRESHOLD, ")"), color = "darkgreen", size = 5) +
+           label = paste0("GES (", GES_THRESHOLD, ")"), color = "#009E73", size = 5) +
   
   # C. Lines and Points
-  # Plot the raw points with slight transparency
-  geom_point(aes(shape = Source), size = 2, alpha = 0.6, na.rm = TRUE) +
-  # Apply loess smoothing to emulate the 3-year rollmean (span=0.15 creates a tight, localized fit)
+  # Plot the raw points with larger size and less transparency
+  geom_point(aes(shape = Source), size = 3.5, alpha = 0.8, na.rm = TRUE) +
+  # Apply loess smoothing to emulate the 3-year rollmean 
   geom_smooth(aes(linewidth = Source), method = "loess", span = 0.15, se = FALSE, na.rm = TRUE) +
   
   # D. Direct Labels (Deep, Shallow, All)

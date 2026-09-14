@@ -56,19 +56,20 @@ print(final_bps)
 # =====================================================================
 
 p_tti <- ggplot(grand_df, aes(x = Year, y = TTI)) +
-  annotate("rect", xmin = 1954, xmax = 1974, ymin = -Inf, ymax = Inf, fill = "green", alpha = 0.05) +
-  annotate("rect", xmin = 1974, xmax = 1988, ymin = -Inf, ymax = Inf, fill = "orange", alpha = 0.05) +
-  annotate("rect", xmin = 1988, xmax = 2012, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.05) +
-  annotate("rect", xmin = 2012, xmax = 2022, ymin = -Inf, ymax = Inf, fill = "blue", alpha = 0.05) +
+ 
+  annotate("rect", xmin = 1954, xmax = 1974, ymin = -Inf, ymax = Inf, fill = "#009E73", alpha = 0.05) + # Okabe-Ito Bluish-Green
+  annotate("rect", xmin = 1974, xmax = 1988, ymin = -Inf, ymax = Inf, fill = "#E69F00", alpha = 0.05) + # Okabe-Ito Orange
+  annotate("rect", xmin = 1988, xmax = 2012, ymin = -Inf, ymax = Inf, fill = "#D55E00", alpha = 0.05) + # Okabe-Ito Vermillion
+  annotate("rect", xmin = 2012, xmax = 2022, ymin = -Inf, ymax = Inf, fill = "#56B4E9", alpha = 0.05) + # Okabe-Ito Light Blue
   
   scale_x_continuous(breaks = seq(1950, 2030, by = 10)) +
   
-  geom_hline(yintercept = ges_threshold, linetype = "dashed", color = "darkgreen", linewidth = 0.8) +
+  geom_hline(yintercept = ges_threshold, linetype = "dashed", color = "#009E73", linewidth = 0.8) +
   annotate("text", x = 1960, y = ges_threshold + 0.005, vjust= 0,
-           label = paste0("GES (", ges_threshold, ")"), color = "darkgreen", size = 5) +
+           label = paste0("GES (", ges_threshold, ")"), color = "#009E73", size = 5) +
   
   geom_line(color = "black", linewidth = 1) +
-  geom_point(size = 1.5) +
+  geom_point(size = 1.7) +
   
   geom_vline(xintercept = breaks_final, linetype = "dotted", linewidth = 0.6) +
   
@@ -95,7 +96,8 @@ p_ccf <- ggplot(ccf_df, aes(x = Lag, y = Correlation)) +
   geom_col(aes(fill = Lag == max_lag), show.legend = FALSE) +
   scale_fill_manual(values = c("grey70", "#D55E00")) + 
   
-  geom_hline(yintercept = c(sig_level, -sig_level), linetype = "dashed", color = "red") +
+  geom_hline(yintercept = c(sig_level, -sig_level), linetype = "dashed", color = "blue", alpha = 0.5) +
+  
   geom_hline(yintercept = 0, color = "black", linewidth = 0.3) +
   
   geom_point(data = ccf_df[which.max(ccf_df$Correlation),], 
@@ -130,9 +132,9 @@ p_TTI_hyst <- ggplot(grand_df, aes(x = TP_load, y = TTI)) +
                   color = "black",
                   size = 4.5) +
   
-  geom_hline(yintercept = ges_threshold, linetype = "dashed", color = "darkgreen", linewidth = 0.8) +
+  geom_hline(yintercept = ges_threshold, linetype = "dashed", color = "#009E73", linewidth = 0.8) +
   annotate("text", x = load_lim[1] * 1.07 + 15, y = ges_threshold, vjust= -0.5,
-           label = paste0("GES (", ges_threshold, ")"), color = "darkgreen", size = 5) +
+           label = paste0("GES (", ges_threshold, ")"), color = "#009E73", size = 5) +
   
   scale_fill_viridis_c(
     option = "magma", 

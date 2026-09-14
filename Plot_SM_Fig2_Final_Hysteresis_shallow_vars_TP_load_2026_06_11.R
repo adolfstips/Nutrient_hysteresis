@@ -39,9 +39,9 @@ p_TTI_hyst_shallow <- ggplot(grand_df, aes(x = TP_load, y = TTI_SHALLOW)) +
             color = "grey60", alpha = 0.8) +
   
   # Threshold line and label
-  geom_hline(yintercept = ges_threshold, linetype = "dashed", color = "darkgreen", linewidth = 0.8) +
+  geom_hline(yintercept = ges_threshold, linetype = "dashed", color = "#009E73", linewidth = 0.8) +
   annotate("text", x = min(grand_df$TP_load) + 3, y = ges_threshold, vjust = -0.8,
-           label = paste0("GES (", ges_threshold, ")"), color = "darkgreen", size = 5, fontface = "bold") +
+           label = paste0("GES (", ges_threshold, ")"), color = "#009E73", size = 5, fontface = "bold") +
   
   # Data Points (Plotted after path so circles sit neatly on top of the arrow tips)
   geom_point(aes(fill = Year), shape = 21, size = 4.5, stroke = 0.5, color = "black") +

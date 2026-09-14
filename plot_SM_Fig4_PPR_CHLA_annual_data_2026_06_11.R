@@ -34,21 +34,23 @@ cor_label <- paste0("r = ", round(cor_res$estimate, 2),
 plot_PPR_CHLA <- ggplot(df_all, aes(x = Year)) +
   
   # Background Shading
-  annotate("rect", xmin = 1953, xmax = 1974, ymin = -Inf, ymax = Inf, fill = "green", alpha = 0.07) +
-  annotate("rect", xmin = 1974, xmax = 1988, ymin = -Inf, ymax = Inf, fill = "orange", alpha = 0.07) +
-  annotate("rect", xmin = 1988, xmax = 2012, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.07) +
-  annotate("rect", xmin = 2012, xmax = 2022, ymin = -Inf, ymax = Inf, fill = "blue", alpha = 0.07) +
+  # Background Shading
+  annotate("rect", xmin = 1953, xmax = 1974, ymin = -Inf, ymax = Inf, fill = "#009E73", alpha = 0.05) +
+  annotate("rect", xmin = 1974, xmax = 1988, ymin = -Inf, ymax = Inf, fill = "#E69F00", alpha = 0.05) +
+  annotate("rect", xmin = 1988, xmax = 2012, ymin = -Inf, ymax = Inf, fill = "#D55E00", alpha = 0.05) +
+  annotate("rect", xmin = 2012, xmax = 2022, ymin = -Inf, ymax = Inf, fill = "#56B4E9", alpha = 0.05) +
   
-  # Raw Points (Transparent)
-  geom_point(aes(y = PPR), color = "darkgreen", alpha = 0.3, size = 1.5) +
-  geom_point(aes(y = CHLA * scale_factor), color = "steelblue", alpha = 0.3, size = 1.5) +
+  # Raw Points (Larger, less transparent)
+  geom_point(aes(y = PPR), color = "#009E73", alpha = 0.6, size = 3) +
+  geom_point(aes(y = CHLA * scale_factor), color = "#0072B2", alpha = 0.6, size = 3) +
   
-  # Filtered Lines
-  geom_line(aes(y = PPR_fil), color = "darkgreen", linewidth = 1.2, na.rm = TRUE) +
-  geom_line(aes(y = CHLA_fil * scale_factor), color = "steelblue", linewidth = 1.2, na.rm = TRUE) +
+  # Filtered Lines (Thinner)
+  geom_line(aes(y = PPR_fil), color = "#009E73", linewidth = 0.8, na.rm = TRUE) +
+  geom_line(aes(y = CHLA_fil * scale_factor), color = "#0072B2", linewidth = 0.8, na.rm = TRUE) +
   
-  # Breakpoints
-  geom_vline(xintercept = c(1974, 1988, 2012), color = "red", linetype = "longdash", linewidth = 0.8) +
+  # Breakpoints (Updated to Okabe-Ito Vermillion)
+  geom_vline(xintercept = c(1974, 1988, 2012), color = "#D55E00", linetype = "longdash", linewidth = 0.8) +
+  
   
   # Dual Y-Axis with Fixed Unit Labels
   scale_y_continuous(
@@ -60,9 +62,9 @@ plot_PPR_CHLA <- ggplot(df_all, aes(x = Year)) +
   
   # Direct Line Labels
   annotate("text", x = 2023, y = tail(na.omit(df_all$PPR_fil), 1), 
-           label = "PPR", color = "darkgreen", fontface = "bold", hjust = 0) +
+           label = "PPR", color = "#009E73", fontface = "bold", hjust = 0) +
   annotate("text", x = 2023, y = tail(na.omit(df_all$CHLA_fil), 1) * scale_factor, 
-           label = "Chl-a", color = "steelblue", fontface = "bold", hjust = 0) +
+           label = "Chl-a", color = "#0072B2", fontface = "bold", hjust = 0) +
   
   # Titles
   labs(title = "Baltic Sea Productivity: PPR vs Chlorophyll-a",
@@ -71,8 +73,8 @@ plot_PPR_CHLA <- ggplot(df_all, aes(x = Year)) +
   
   theme_pubr(base_size = 14) +
   theme(
-    axis.title.y.left  = element_text(color = "darkgreen", face = "bold"),
-    axis.title.y.right = element_text(color = "steelblue", face = "bold"),
+    axis.title.y.left  = element_text(color = "#009E73", face = "bold"),
+    axis.title.y.right = element_text(color = "#0072B2", face = "bold"),
     plot.title = element_text(face = "bold")
   )
 

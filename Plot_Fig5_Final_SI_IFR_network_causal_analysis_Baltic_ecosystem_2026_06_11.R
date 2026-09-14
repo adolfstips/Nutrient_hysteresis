@@ -122,6 +122,18 @@ causal_error_multidim_95 = function(xxx, np = 1){
   return(c(T21, err95))
 }
 
+# Okabe-Ito colorblind-friendly palette mapped to network variables
+okabe_ito_net <- c(
+  "TN_load" = "#56B4E9",  # Light Blue
+  "TP_load" = "#E69F00",  # Orange
+  "DIP"     = "#009E73",  # Bluish Green
+  "DIN"     = "#F0E442",  # Yellow
+  "CHLA"    = "#D55E00",  # Vermillion
+  "DO2_Mt"  = "#0072B2",  # Dark Blue
+  "Secchi"  = "#CC79A7",  # Reddish Purple
+  "TTI"     = "#999999"   # Grey (using Okabe-Ito grey instead of black for better node visibility)
+)
+
 # ------------------------------------------------------------------------------
 # 2. DATA PREPARATION
 # ------------------------------------------------------------------------------
@@ -174,13 +186,15 @@ generate_region_plots <- function(plot_data, region_name, s_date, e_date) {
     ylab('System Impact [Nat/year]') +
     xlab('') +
     scale_fill_gradientn(
-      colours = rev(c(muted("red"), "white", muted("blue"))),
+      colours = rev(c(scales::muted("red"), "white", scales::muted("blue"))),
       limits = c(ymin, ymax), 
       values = rescale(c(ymin, 0, ymax)),
       oob = squish) +
     labs(title = paste("System Impact -", region_name),
          subtitle = paste("Period:", s_date, '-', e_date)) +
-    geom_hline(yintercept = 0) +
+    geom_hline(yintercept = 0, color = "black") +
+    # NEW: Add the 0.1 insignificance thresholds
+    geom_hline(yintercept = c(-0.1, 0.1), linetype = "dashed", color = "grey50", linewidth = 0.8) + 
     theme(
       plot.title = element_text(size = 18, hjust = 0.5, face = "bold"),
       axis.title = element_text(size = 12, face = 'bold'),
@@ -237,6 +251,7 @@ generate_region_plots <- function(plot_data, region_name, s_date, e_date) {
     scale_linewidth_continuous(range = c(0.8, 5.0)) + 
     scale_alpha_continuous(range = c(0.35, 0.95)) + 
     scale_linetype_manual(values = c("Positive" = "solid", "Negative" = "41"), name = "Causal Direction") +
+    scale_color_manual(values = okabe_ito_net) +
     coord_cartesian(clip = "off") + 
     theme_blank() +
     

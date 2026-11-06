@@ -94,6 +94,14 @@ grand_ts <- ts(grand_matrix, start = s_date, frequency = 1)
 # Breakpoints for Panel C
 ci_grand <- get_bp_ci_mapped(grand_ts, years_vec)
 
+cat("    --- Figure 1: Structural Breakpoints & 95% CIs ---\n")
+cat("    Panel A (Nutrient Loads):\n")
+print(ci_nutrients, row.names = FALSE)
+cat("    Panel B (MSFD Indicators):\n")
+print(ci_msfd, row.names = FALSE)
+cat("    Panel C (Coupled System):\n")
+print(ci_grand, row.names = FALSE)
+
 grand_df_scaled <- as.data.frame(grand_matrix)
 grand_df_scaled$Year <- grand_df$Year
 grand_long <- pivot_longer(grand_df_scaled, cols = -Year, names_to = "Metric", values_to = "Z_Score")

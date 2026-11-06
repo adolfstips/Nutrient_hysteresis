@@ -171,6 +171,8 @@ generate_region_plots <- function(plot_data, region_name, s_date, e_date) {
   }
   names(GG1) = var_names
   gg_ad = round(GG1, 2)
+  si_pairs <- paste(sprintf("'%s': %s", names(gg_ad), as.character(gg_ad)), collapse = ", ")
+  cat(sprintf("    %s SI: {%s}\n", sub(" Baltic", "", region_name), si_pairs))
   
   ymin = floor(min(gg_ad)*10 - 0.4)/10 
   ymax = ceiling(max(gg_ad)*10 + 0.35)/10

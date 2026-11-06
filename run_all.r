@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # Master Execution Script: Baltic Sea Nutrient Hysteresis (R Repository)
 # Runs all main (Figures 1-5) and supplementary (SM Figures 1-7) scripts
-# and logs all console output to 'collected_output.txt'
+# and logs all statistical and console outputs to 'collected_output.txt'
 # ------------------------------------------------------------------------------
 
 scripts <- c(
@@ -42,7 +42,7 @@ for (i in seq_along(scripts)) {
   t0 <- Sys.time()
   
   tryCatch({
-    source(scr, local = new.env(), print.eval = TRUE)
+    source(scr, local = new.env(), print.eval = FALSE)
     dt <- round(as.numeric(difftime(Sys.time(), t0, units = "secs")), 2)
     cat(sprintf("    --> [OK] Completed in %s s\n\n", dt))
     success_count <- success_count + 1

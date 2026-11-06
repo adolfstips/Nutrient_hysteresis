@@ -53,6 +53,13 @@ for (var in target_vars) {
 # Clean variable names for plot
 ccf_results$Variable <- gsub("_DEEP", "", ccf_results$Variable)
 
+cat("    --- SM Figure 1: Dominant Causal Lags (TN Load vs Deep Indicators) ---\n")
+dom_df <- subset(ccf_results, Is_Max == TRUE)
+dom_df <- dom_df[order(dom_df$Variable), ]
+for (i in seq_len(nrow(dom_df))) {
+  cat(sprintf("      %-8s: Lag = %2d yrs (r = %+.3f)\n", dom_df$Variable[i], dom_df$Lag[i], dom_df$Correlation[i]))
+}
+
 # Order factors if desired (optional, to match network flow order)
 # ccf_results$Variable <- factor(ccf_results$Variable, levels = c("CHLA", "DIN", "DIP", "DO2_Mt", "Secchi"))
 

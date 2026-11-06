@@ -101,3 +101,4 @@ print(plot_regional_dip)
 ggsave("Figure_SM6_Baltic_Regional_Deep_DIP.png", 
        plot_regional_dip, width = 10, height = 6, dpi = 300, bg = "white")
 
+print("Analysis complete. Figure SM6 successfully saved.")

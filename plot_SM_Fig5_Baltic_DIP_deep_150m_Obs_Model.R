@@ -117,4 +117,4 @@ print(plot_150m)
 ggsave("Figure_SM5_Baltic_Deep_150m_DIP.png", 
        plot_150m, width = 11, height = 6, dpi = 300, bg = "white")
 
-
+print("Analysis complete. Figure SM5 successfully saved.")

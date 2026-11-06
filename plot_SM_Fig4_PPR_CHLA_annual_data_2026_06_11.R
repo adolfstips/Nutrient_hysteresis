@@ -30,6 +30,9 @@ cor_label <- paste0("r = ", round(cor_res$estimate, 2),
                     " [CI: ", round(cor_res$conf.int[1], 2), "-", round(cor_res$conf.int[2], 2), "], ",
                     "p < 0.001")
 
+cat("    --- SM Figure 4: PPR vs Chl-a Correlation ---\n")
+cat(sprintf("    %s\n", cor_label))
+
 # --- 4. PLOTTING ---
 plot_PPR_CHLA <- ggplot(df_all, aes(x = Year)) +
   

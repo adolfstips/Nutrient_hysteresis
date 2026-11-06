@@ -5,7 +5,7 @@ This repository contains the data, R scripts, and generated figures for the hyst
 By utilizing a unified dataset containing annual means for Deep, Shallow, and All-region MSFD biogeochemical indicators alongside external nutrient loads, these scripts reproduce the phase-space trajectories, causality networks, and cross-correlation functions discussed in the article.
 
 **Recent Updates:** 
-* All figures (Main 1-5 and SM 1-4) have been updated to utilize colorblind-friendly palettes (Okabe-Ito) to maximize accessibility and clarity.
+* All figures (Main 1-5 and SM 1-7) have been updated to utilize colorblind-friendly palettes (Okabe-Ito) to maximize accessibility and clarity.
 * Added independent empirical validation datasets (ICES and ODIN) and corresponding scripts (SM5, SM6, SM7) to corroborate the deterministic model findings and prove the deep-water legacy phosphorus trap.
 
 ## 📂 Repository Structure

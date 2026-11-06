@@ -1,0 +1,66 @@
+========================================================================
+BALTIC SEA NUTRIENT HYSTERESIS - R BATCH EXECUTION LOG
+Timestamp: 2026-11-06 11:37:54
+========================================================================
+
+[1/12] Running: Plot_Fig1_Final_TNTP_MSFD_TTI_vars_breakpoints_2026_06_11.R ...
+[1] "Analysis complete. Figure 1 successfully saved."
+    --> [OK] Completed in 3.56 s
+
+[2/12] Running: Plot_Fig2_Final_CCF_MSFD_vars_TP_load_2026_06_11.R ...
+[1] "Analysis complete. Figure 2 successfully saved."
+    --> [OK] Completed in 1.48 s
+
+[3/12] Running: Plot_Fig3_Final_TTI_mean_3curves_Baltic_2026_06_11.R ...
+[1] "Analysis complete. Figure 3 successfully saved."
+    --> [OK] Completed in 1.76 s
+
+[4/12] Running: Plot_Fig4_Final_Hysteresis_deep_vars_TP_load_2026_06_11.R ...
+[1] "Analysis complete. Figure 4 successfully saved."
+    --> [OK] Completed in 2.06 s
+
+[5/12] Running: Plot_Fig5_Final_SI_IFR_network_causal_analysis_Baltic_ecosystem_2026_06_11.R ...
+[1] "Analysis complete. Figure 5 successfully saved."
+    --> [OK] Completed in 2.34 s
+
+[6/12] Running: Plot_SM_Fig1_CCF_MSFD_vars_TN_load_2026_06_11.R ...
+[1] "Analysis complete. SM Figure 1 successfully saved."
+    --> [OK] Completed in 1.43 s
+
+[7/12] Running: Plot_SM_Fig2_Final_Hysteresis_shallow_vars_TP_load_2026_06_11.R ...
+[1] "Analysis complete. Shallow Hysteresis figure successfully saved."
+    --> [OK] Completed in 1.87 s
+
+[8/12] Running: Plot_SM_Fig3_BP_TTI_LAG_nutrients_narrative_2026_06_11.R ...
+[1] "--- Unified System Breakpoints (5 Vars) ---"
+[1] 1974 1988 2012
+[1] "Baltic narrative Analysis complete"
+    --> [OK] Completed in 1.12 s
+
+[9/12] Running: Plot_SM_Fig4_PPR_CHLA_annual_data_2026_06_11.R ...
+[1] "Analysis complete. Figure PPR-CHLa successfully saved."
+    --> [OK] Completed in 1.01 s
+
+[10/12] Running: Plot_SM_Fig5_Baltic_DIP_deep_150m_Obs_Model.R ...
+[1] "--- Deep Station (150m) Statistical Skill ---"
+          Station        Variable Pearson_r RMSE Mean_Bias
+1 EGB 26DA (150m) Phosphate (DIP)     0.666 0.63    -0.485
+    --> [OK] Completed in 0.66 s
+
+[11/12] Running: Plot_SM_Fig6_Baltic_DIP_deep_50m_ICES.R ...
+    --> [OK] Completed in 1.38 s
+
+[12/12] Running: Plot_SM_Fig7_Baltic_DIP_DIN_ODIN_Model.R ...
+[1] "--- Model vs. Observation Statistical Skill ---"
+            Region  Nutrient Pearson_r  RMSE Mean_Bias
+1 Arkona (Shallow)   Nitrate    -0.306 2.468     1.218
+2 Arkona (Shallow) Phosphate     0.645 0.101    -0.069
+3       EGB (Deep)   Nitrate    -0.220 1.526     0.095
+4       EGB (Deep) Phosphate     0.438 0.142    -0.119
+[1] "Analysis complete. Composite figure SM7 successfully saved."
+    --> [OK] Completed in 2.15 s
+
+========================================================================
+Batch run finished: 12/12 scripts succeeded in 21.18 s.
+Full console output saved to: collected_output.txt
+========================================================================

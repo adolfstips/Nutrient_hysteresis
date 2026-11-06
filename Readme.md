@@ -47,19 +47,19 @@ The files are categorized as follows:
   * Script: `Plot_SM_Fig2_Final_Hysteresis_shallow_vars_TP_load_2026_06_11.R`
   * Output: `Figure_SM2_Baltic_Hysteresis_Shallow.png`
 * **SM Figure 3: Nutrients Narrative & CCF Composite**
-  * Script: `plot_SM_Fig3_BP_TTI_LAG_nutrients_narrative_2026_06_11.R`
+  * Script: `Plot_SM_Fig3_BP_TTI_LAG_nutrients_narrative_2026_06_11.R`
   * Output: `Figure_SM3_Baltic_TTI_LAG_TP_CCF_Analysis_Composite.png`
 * **SM Figure 4: Baltic Sea Productivity (PPR vs Chl-a)**
-  * Script: `plot_SM_Fig4_PPR_CHLA_annual_data_2026_06_11.R`
+  * Script: `Plot_SM_Fig4_PPR_CHLA_annual_data_2026_06_11.R`
   * Output: `Figure_SM4_Baltic_PPR_CHLA.png`
 * **SM Figure 5: Deep-Water (150m) Phosphorus Trap Verification**
-  * Script: `plot_SM_Fig5_Baltic_DIP_deep_150m_Obs_Model.R`
+  * Script: `Plot_SM_Fig5_Baltic_DIP_deep_150m_Obs_Model.R`
   * Output: `Figure_SM5_Baltic_Deep_150m_DIP.png`
 * **SM Figure 6: Regional Deep-Water (>50m) Phosphorus Accumulation**
-  * Script: `plot_SM_Fig6_Baltic_DIP_deep_50m_ICES.R`
+  * Script: `Plot_SM_Fig6_Baltic_DIP_deep_50m_ICES.R`
   * Output: `Figure_SM6_Baltic_Regional_Deep_DIP.png`
 * **SM Figure 7: Surface Nutrient Observations vs. Model (ODIN)**
-  * Script: `plot_SM_Fig7_Baltic_DIP_DIN_ODIN_Model.R`
+  * Script: `Plot_SM_Fig7_Baltic_DIP_DIN_ODIN_Model.R`
   * Output: `Figure_SM7_Baltic_ODIN_vs_Model_Combined.png`
 
 ## 🚀 How to Run
